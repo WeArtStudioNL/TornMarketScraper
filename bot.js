@@ -17,7 +17,7 @@ client.commands = new Collection();
 const commands = [];
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
-const keyv = new Keyv('mysql://' + process.env.DBUSER + ':' + process.env.DBPASS + '@localhost:3306/tmsd_');
+const keyv = new Keyv('mysql://' + process.env.DBUSER + ':' + process.env.DBPASS + '@glennhofman.nl:3306/tmsd_');
 
 keyv.on('error', err => console.error('Keyv connection error:', err));
 
