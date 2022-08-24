@@ -55,6 +55,15 @@ client.on('interactionCreate', async interaction => {
 		const string = interaction.options.getString('input');
 		await interaction.reply("You typed: " + string);
 	}
+	if (interaction.commandName === 'register_api') {
+		const api = interaction.options.getString('api');
+		await interaction.reply("Your api: " + api);
+		console.log(interaction);
+			(async () => {
+				await keyv.set('user', 'bar');
+			})();
+
+	}
 });
 
 client.login(token);
