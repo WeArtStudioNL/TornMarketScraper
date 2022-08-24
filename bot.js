@@ -1,16 +1,21 @@
 require('dotenv').config()
+const token = process.env.TOKEN;
+const guildId = process.env.GUILD;
+const clientId = process.env.CLIENT;
+
 const { REST } = require('@discordjs/rest');
 const fs = require('node:fs');
+const path = require('node:path');
 const { Client, GatewayIntentBits, Routes, SlashCommandBuilder } = require('discord.js');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
+client.commands = new Collection();
+
 const commands = [];
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
-const token = process.env.TOKEN;
-const guildId = process.env.GUILD;
-const clientId = process.env.CLIENT;
+
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
