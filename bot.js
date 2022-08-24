@@ -51,7 +51,7 @@ client.once('ready', () => {
 client.on('messageCreate', function (message) {
 	console.log(message);
 	if (message.content === 'start') {
-		message.channel.send("message here");
+		message.author.send("Your message here.");
 	}
 });
 
