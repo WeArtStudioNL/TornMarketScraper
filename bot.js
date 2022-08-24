@@ -6,7 +6,7 @@ const clientId = process.env.CLIENT;
 const { REST } = require('@discordjs/rest');
 const fs = require('node:fs');
 const path = require('node:path');
-const { Client, GatewayIntentBits, Routes, SlashCommandBuilder } = require('discord.js');
+const { Client, GatewayIntentBits, Collection, Routes, SlashCommandBuilder } = require('discord.js');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
