@@ -5,6 +5,7 @@ const clientId = process.env.CLIENT;
 const Keyv = require('keyv');
 
 
+
 const { REST } = require('@discordjs/rest');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -18,7 +19,6 @@ const commands = [];
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 const keyv = new Keyv('mysql://' + process.env.DBUSER + ':' + process.env.DBPASS + '@glennhofman.nl:3306/tmsd_');
-
 keyv.on('error', err => console.error('Keyv connection error:', err));
 
 
@@ -63,13 +63,13 @@ client.on('interactionCreate', async interaction => {
 
 		console.log();
 			(async () => {
-				const newapi = keyv.set(interaction.user.id, '{ "api", api }');
+				const newapi = keyv.set(interaction.user.id, '{ "api": api }');
 				console.log("api for user " + interaction.user.id + " set.");
 
-				var apikey = keyv.get(interaction.user.id);
-				apikey.then(value => {
-					value = JSON.parse(value);
-					console.log(value.api);
+				var userdata = keyv.get(interaction.user.id);
+				userdata.then(user => {
+					user = JSON.parse(user);
+					console.log(user.api);
 				}).catch(err => {
 					console.log(err);
 				});
