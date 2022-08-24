@@ -62,7 +62,7 @@ client.on('interactionCreate', async interaction => {
 		(async () => {
 			var userdata = keyv.get(interaction.user.id);
 			userdata.then(user => {
-				user = JSON.parse(user);
+				user = JSON.parse(String(user));
 				if (!user.watchlist) {
 					user.watchlist = itemId;
 				}
@@ -90,6 +90,7 @@ client.on('interactionCreate', async interaction => {
 
 				var userdata = keyv.get(interaction.user.id);
 				userdata.then(user => {
+					user = JSON.parse(String(user));
 					console.log(user);
 				}).catch(err => {
 					console.log(err);
