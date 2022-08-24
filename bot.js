@@ -4,6 +4,7 @@ const guildId = process.env.GUILD;
 const clientId = process.env.CLIENT;
 const Keyv = require('keyv');
 
+
 const { REST } = require('@discordjs/rest');
 const fs = require('node:fs');
 const path = require('node:path');
