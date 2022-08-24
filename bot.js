@@ -48,11 +48,17 @@ client.once('ready', () => {
 	}
 })();
 
+client.on('messagecreate', function (message) {
+	if (message.content === 'start') {
+		client.message.send(author, 'pong');
+	}
+});
+
 client.on('interactionCreate', async interaction => {
 	if (!interaction.isChatInputCommand()) return;
 
 	if (interaction === "start") {
-		await interaction.reply({ content: "hey!", ephemeral: true });
+		
 	}
 
 	if (interaction.commandName === 'echo') {
