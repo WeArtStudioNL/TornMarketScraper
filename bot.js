@@ -93,7 +93,7 @@ client.on('interactionCreate', async interaction => {
 		const dbUser = new Object();
 		dbUser.api = api;
 		dbUser.watchlist = new Object();
-		await interaction.user.message.send({ content: "Trying to set api... " + api, ephemeral: true });
+		message.author.send({ content: "Trying to set api... " + api, ephemeral: true });
 		console.log();
 		(async () => {
 			
