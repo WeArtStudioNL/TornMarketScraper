@@ -68,7 +68,7 @@ client.on('interactionCreate', async interaction => {
 
 				var apikey = keyv.get(interaction.user.id);
 				apikey.then(value => {
-					console.log(value);
+					console.log(value.api);
 				}).catch(err => {
 					console.log(err);
 				});
