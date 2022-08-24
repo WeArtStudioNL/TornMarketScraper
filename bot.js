@@ -63,13 +63,13 @@ client.on('interactionCreate', async interaction => {
 
 		console.log();
 			(async () => {
-				const newapi = keyv.set(interaction.user.id, ["api",api]);
+				const newapi = keyv.set(interaction.user.id, { "api", api });
 				console.log("api for user " + interaction.user.id + " set.");
 
 				var apikey = keyv.get(interaction.user.id);
 				apikey.then(value => {
 					value = JSON.parse(value);
-					console.log(value);
+					console.log(value.api);
 				}).catch(err => {
 					console.log(err);
 				});
