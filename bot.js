@@ -97,7 +97,6 @@ client.on('interactionCreate', async interaction => {
 				}).catch(err => {
 					console.log(err);
 				});
-				await interaction.reply({ content: "Your api: " + api + "is registered.", ephemeral: true });
 			})();
 
 	}
