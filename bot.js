@@ -55,6 +55,27 @@ client.on('interactionCreate', async interaction => {
 		const string = interaction.options.getString('input');
 		await interaction.reply("You typed: " + string);
 	}
+	//if add item
+	if (interaction.commandName === 'add') {
+		const itemId = interaction.options.getNumber('itemId');
+		await interaction.reply({ content: "Adding to watchlist: " + itemId, ephemeral: true });
+		(async () => {
+			var userdata = keyv.get(interaction.user.id);
+			userdata.then(user => {
+				user = JSON.parse(user);
+				if (!user.watchlist) {
+					user.watchlist = itemId;
+				}
+				const newWatchlist = keyv.set(interaction.user.id, JSON.stringify(user));
+				console.log("Watchlist updated for user:" + interaction.user.id);
+			}).catch(err => {
+				console.log(err);
+			});
+
+		})();
+
+	}
+
 	if (interaction.commandName === 'register_api') {
 		const api = interaction.options.getString('api');
 		await interaction.reply({ content: "Your api: " + api, ephemeral: true });
@@ -63,7 +84,7 @@ client.on('interactionCreate', async interaction => {
 
 		console.log();
 			(async () => {
-				const newapi = keyv.set(interaction.user.id, '{ "api": api }');
+				const newapi = keyv.set(interaction.user.id, '{ "api": api, "watchlist": {}}');
 				console.log("api for user " + interaction.user.id + " set.");
 
 				var userdata = keyv.get(interaction.user.id);
