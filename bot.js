@@ -51,6 +51,10 @@ client.once('ready', () => {
 client.on('interactionCreate', async interaction => {
 	if (!interaction.isChatInputCommand()) return;
 
+	if (interaction === "start") {
+		client.send('hey');
+	}
+
 	if (interaction.commandName === 'echo') {
 		const string = interaction.options.getString('input');
 		await interaction.reply("You typed: " + string);
