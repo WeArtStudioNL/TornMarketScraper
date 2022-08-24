@@ -48,7 +48,8 @@ client.once('ready', () => {
 	}
 })();
 
-client.on('messagecreate', function (message) {
+client.on('messageCreate', function (message) {
+	console.log(message);
 	if (message.content === 'start') {
 		client.message.send(author, 'pong');
 	}
