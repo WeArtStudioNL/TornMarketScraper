@@ -2,6 +2,7 @@ require('dotenv').config()
 const token = process.env.TOKEN;
 const guildId = process.env.GUILD;
 const clientId = process.env.CLIENT;
+const Keyv = require('keyv');
 
 const { REST } = require('@discordjs/rest');
 const fs = require('node:fs');
