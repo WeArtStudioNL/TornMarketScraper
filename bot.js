@@ -59,9 +59,10 @@ client.on('interactionCreate', async interaction => {
 		const api = interaction.options.getString('api');
 		await interaction.reply("Your api: " + api);
 		console.log(interaction);
-		console.log(keyv.get(user.id));
+		console.log(keyv.get(interaction.user.id));
 			(async () => {
-				await keyv.set(user.id, ['api',api]);
+				await keyv.set(interaction.user.id, ['api', api]);
+				console.log("api for user " + interaction.user.id + " set.");
 			})();
 
 	}
