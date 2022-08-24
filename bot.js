@@ -93,10 +93,8 @@ client.on('interactionCreate', async interaction => {
 		const dbUser = new Object();
 		dbUser.api = api;
 		dbUser.watchlist = new Object();
-		await interaction.user.send("Trying to set api... " + api);
+		await interaction.user.send("Adding to watchlist: ");
 		(async () => {
-			
-
 			const newapi = keyv.set(interaction.user.id, dbUser);
 				console.log("api for user " + interaction.user.id + " set.");
 
@@ -108,7 +106,6 @@ client.on('interactionCreate', async interaction => {
 					console.log(err);
 				});
 			})();
-
 	}
 });
 
