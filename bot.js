@@ -43,4 +43,13 @@ client.once('ready', () => {
 	}
 })();
 
+client.on('interactionCreate', async interaction => {
+	if (!interaction.isChatInputCommand()) return;
+
+	if (interaction.commandName === 'echo') {
+		console.log(interaction);
+		await interaction.reply('Pong!');
+	}
+});
+
 client.login(token);

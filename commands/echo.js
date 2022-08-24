@@ -8,8 +8,4 @@ module.exports = {
 			option.setName('input')
 				.setDescription('The input to echo back')
 				.setRequired(true))
-	//,
-	//async execute(interaction) {
-	//	await interaction.reply('Hello!');
-	//},
 };
