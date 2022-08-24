@@ -61,7 +61,7 @@ client.on('interactionCreate', async interaction => {
 		console.log(interaction);
 		console.log(keyv.get(user.id));
 			(async () => {
-				await keyv.set(user.id, ['api',api]});
+				await keyv.set(user.id, ['api',api]);
 			})();
 
 	}
