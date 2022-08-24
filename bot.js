@@ -90,7 +90,7 @@ client.on('interactionCreate', async interaction => {
 
 				var userdata = keyv.get(interaction.user.id);
 				userdata.then(user => {
-					user = JSON.parse(String(user));
+					user = JSON.parse("["+user+"]"));
 					console.log(user);
 				}).catch(err => {
 					console.log(err);
