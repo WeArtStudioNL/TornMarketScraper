@@ -57,12 +57,17 @@ client.on('interactionCreate', async interaction => {
 	}
 	if (interaction.commandName === 'register_api') {
 		const api = interaction.options.getString('api');
-		await interaction.reply("Your api: " + api);
+		await interaction.reply({ content: "Your api: " + api, ephemeral: true });
 		console.log(interaction);
-		console.log(keyv.get(interaction.user.id));
+		(async () => {
+			await keyv.get(interaction.user.id);
+				console.log(interaction.user.id);
+		});
+
+		console.log();
 			(async () => {
 				await keyv.set(interaction.user.id, ['api', api]);
-				console.log("api for user " + interaction.user.id + " set.");
+					console.log("api for user " + interaction.user.id + " set.");
 			})();
 
 	}
