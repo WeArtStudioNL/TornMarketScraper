@@ -5,7 +5,7 @@ module.exports = {
 		.setName('add')
 		.setDescription('Add an item to your watchlist')
 		.addStringOption(option =>
-			option.setName('itemId')
+			option.setName('itemid')
 				.setDescription('The item ID')
 				.setRequired(true))
 };

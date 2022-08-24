@@ -57,7 +57,7 @@ client.on('interactionCreate', async interaction => {
 	}
 	//if add item
 	if (interaction.commandName === 'add') {
-		const itemId = interaction.options.getString('itemId'); 
+		const itemId = interaction.options.getString('itemid'); 
 		await interaction.reply({ content: "Adding to watchlist: " + itemId, ephemeral: true });
 		(async () => {
 			var userdata = keyv.get(interaction.user.id);
