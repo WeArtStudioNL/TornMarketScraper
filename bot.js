@@ -52,7 +52,7 @@ client.on('interactionCreate', async interaction => {
 	if (!interaction.isChatInputCommand()) return;
 
 	if (interaction === "start") {
-		client.send('hey');
+		await interaction.reply({ content: "hey!", ephemeral: true });
 	}
 
 	if (interaction.commandName === 'echo') {
