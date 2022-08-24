@@ -66,6 +66,7 @@ client.on('interactionCreate', async interaction => {
 				if (!user.watchlist) {
 					user.watchlist = itemId;
 				}
+				console.log(user);
 				const newWatchlist = keyv.set(interaction.user.id, JSON.stringify(user));
 				console.log("Watchlist updated for user:" + interaction.user.id);
 			}).catch(err => {
