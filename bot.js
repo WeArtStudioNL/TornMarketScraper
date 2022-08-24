@@ -85,7 +85,7 @@ client.on('interactionCreate', async interaction => {
 
 		console.log();
 			(async () => {
-				const newapi = keyv.set(interaction.user.id, '{ "api": api, "watchlist": {}}');
+				const newapi = keyv.set(interaction.user.id, {"api": api, "watchlist": {}});
 				console.log("api for user " + interaction.user.id + " set.");
 
 				var userdata = keyv.get(interaction.user.id);
