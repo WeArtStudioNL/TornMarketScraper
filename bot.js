@@ -67,7 +67,7 @@ client.on('messageCreate', function (message) {
 
 			//the whole response has been received, so we just print it out here
 			response.on('end', function () {
-				message.author.send(str);
+				console.log(str);
 			});
 		}
 
